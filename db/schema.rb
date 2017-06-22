@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 6) do
   create_table "book_users", force: :cascade do |t|
     t.integer "book_id"
     t.integer "user_id"
-    t.boolean "returned?", default: true
+    t.boolean "returned?", default: false
+    t.string "due_date"
+    t.string "return_date"
   end
 
   create_table "books", force: :cascade do |t|
