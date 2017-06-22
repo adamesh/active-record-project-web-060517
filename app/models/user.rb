@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
   end
 
   def return_book(book, return_date)
-    checkout_record = book.book_users.last
+    checkout_record = UserBook.where(user: self, returned: false)
     checkout_record.return_date = return_date
+    checkout_record.returned = true
   end
 
 end
