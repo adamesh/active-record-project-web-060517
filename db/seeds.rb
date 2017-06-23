@@ -1,2 +1,4 @@
-the_doctor = User.create(name: "The Doctor")
-book = Book.create(title: "Tardis Manual")
+rom = Book.create(title: "rome")
+adames = Author.create(name: "adames")
+rome.author = adames
+kid = User.create(name: "kid")

@@ -8,12 +8,13 @@ class User < ActiveRecord::Base
   def check_out_book(book, due_date)
     # binding.pry
     checkout_record = BookUser.new(due_date)
-    checkout_record.book = book
-    checkout_record.user = self
+    checkout_record.book_id = book.id
+    checkout_record.user_id = self.id
+    checkout_record
   end
 
   def return_book(book, return_date)
-    checkout_record = UserBook.where(user: self, returned: false)
+    checkout_record = BookUser.where(user_id: self.id, returned: false)
     checkout_record.return_date = return_date
     checkout_record.returned = true
   end
